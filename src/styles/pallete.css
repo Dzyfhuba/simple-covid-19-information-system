@@ -1,0 +1,13 @@
+:root {
+    /* CSS HEX */
+    --eerie-black: #1f1f1fff;
+    --burnt-orange: #d45113ff;
+    --deep-saffron: #f9a03fff;
+    --color-backgroud: var(--eerie-black);
+    --color-text: var(--burnt-orange);
+    --color-text-secondary: var(--deep-saffron);
+    --color-text-tertiary: #ffffffff;
+    --color-text-hover: var(--eerie-black);
+    --color-border: var(--deep-saffron);
+    --color-shadow: var(--burnt-orange);
+}
