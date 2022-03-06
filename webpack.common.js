@@ -8,17 +8,27 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.css$/,
-                use: [
-                    {
+                use: [{
                         loader: "style-loader"
                     },
                     {
                         loader: "css-loader"
                     }
                 ]
+            },
+            {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                include: path.resolve(__dirname, "./node_modules/bootstrap-icons/font/fonts"),
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name].[ext]",
+                        outputPath: "webfonts",
+                        publicPath: "../webfonts",
+                    },
+                }
             }
         ]
     },
@@ -28,4 +38,4 @@ module.exports = {
             filename: "index.html"
         })
     ]
-}
+};

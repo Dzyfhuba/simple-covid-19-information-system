@@ -4,12 +4,32 @@
         "es2021": true
     },
     "extends": [
-        "standard"
+        "eslint:recommended"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "rules": {
+        "semi": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "no-console": "off",
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        "no-unreachable": "off",
+        "no-empty": "off",
+        "no-empty-function": "off",
+        "no-extra-semi": "off",
+        "no-extra-boolean-cast": "off",
+        "no-extra-parens": "off",
+        "no-extra-label": "off",
+        "no-extra-bind": "off",
+        "no-mixed-spaces-and-tabs": "error"
     }
 }
