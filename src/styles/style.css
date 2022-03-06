@@ -11,7 +11,14 @@ body {
 }
 
 main {
-    width: 90%;
-    max-width: 800px;
-    margin: 32px auto;
+    margin: 0 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    main {
+        margin: 0 .5%;
+    }
 }
