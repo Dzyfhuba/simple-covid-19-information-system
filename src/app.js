@@ -4,7 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./styles/style.css";
 import "./styles/pallete.css";
 import "./script/component/NavBar";
-import "./script/view/MainDashboard";
+import "./script/view/Summary";
 import main from "./script/view/main.js";
 
 document.addEventListener("DOMContentLoaded", main);
