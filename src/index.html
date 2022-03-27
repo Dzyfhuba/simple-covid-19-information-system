@@ -9,11 +9,22 @@
 
 <body>
     <header>
-        <nav-bar title="COVIFOS" items="summary Countries Daily" items-href="#summary #countries #daily" items-icon="bi-house bi-globe2 bi-calendar2-day">
+        <nav-bar title="COVIFOS" items="Summary Country Daily" items-href="#summary #countries #dailies" items-icon="bi-house bi-globe2 bi-calendar2-day">
         </nav-bar>
     </header>
     <main api="https://covid19.mathdro.id/api">
-        <main-summary route="/api"></main-summary>
+        <article id="summary" data-route="/">
+            <div id="summaryChart"></div>
+        </article>
+        <article id="countries" data-route="/countries" style="display: none;">
+            <select name="" id="" class="form-select">
+                <option value="" selected disabled hidden>Choose an option</option>
+            </select>
+            <div id="countriesChart"></div>
+        </article>
+        <article id="dailies" data-route="/daily" style="display: none;">
+            <div id="dailiesChart"></div>
+        </article>
     </main>
     <footer>
         <p>

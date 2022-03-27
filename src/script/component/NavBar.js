@@ -1,7 +1,6 @@
 class Navbar extends HTMLElement {
     constructor() {
         super();
-        this._shadowRoot = this.attachShadow({ mode: "open" });
         this.items_html = "";
         this.items_icons_html = "";
     }
@@ -30,7 +29,7 @@ class Navbar extends HTMLElement {
     }
 
     render() {
-        this._shadowRoot.innerHTML = `
+        this.innerHTML = `
        <style>
        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
            * {
@@ -38,7 +37,7 @@ class Navbar extends HTMLElement {
                padding: 0;
                box-sizing: border-box;
            }
-           :host {
+           nav-bar {
                display: flex;
                flex-direction: row;
                justify-content: space-between;
@@ -54,11 +53,11 @@ class Navbar extends HTMLElement {
                 text-shadow: 0 0 10px var(--color-shadow);
                 cursor: pointer;
               }
-            :host > nav {
+            nav-bar > nav {
                 display: flex;
                 flex-direction: row;
             }
-            :host > nav > a {
+            nav-bar > nav > a {
                 list-style: none;
                 height: 100%;
                 display: inherit;
@@ -68,12 +67,12 @@ class Navbar extends HTMLElement {
                 text-decoration: none;
                 color: var(--color-text);
             }
-            :host > nav > a:hover {
+            nav-bar > nav > a:hover {
                 cursor: pointer;
                 text-shadow: 0 0 10px var(--color-shadow);
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) inset;
             }
-            :host > nav#mobile {
+            nav-bar > nav#mobile {
                 position: fixed;
                 bottom: 0;
                 width: 100%;
@@ -82,26 +81,26 @@ class Navbar extends HTMLElement {
                 justify-content: space-between;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) inset;
             }
-            :host > nav#mobile > a:active{
+            nav-bar > nav#mobile > a:active{
                 text-shadow: 0 0 10px var(--color-shadow);
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) inset;
             }
-            :host > nav#mobile > a {
+            nav-bar > nav#mobile > a {
                 width: 100%;
                 justify-content: center;
                 height: 80px;
                 font-size: xx-large;
             }
             @media (max-width: 768px) {
-                :host > nav#desktop {
+                nav-bar > nav#desktop {
                     display: none;
                 }
-                :host > nav#mobile {
+                nav-bar > nav#mobile {
                     display: flex;
                 }
             }
        </style>`;
-        this._shadowRoot.innerHTML += `
+        this.innerHTML += `
         <h1>${this.title_head}</h1>
         <nav id="desktop">
             ${this.items_html}

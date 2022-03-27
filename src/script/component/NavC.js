@@ -1,12 +1,14 @@
-import $ from "jquery";
-const main = () => {
-    console.log("main");
-
-    // get href from local storage if exists
-    if (localStorage.getItem("href") !== null) {
-        console.log(localStorage.getItem("href"));
-        // switch to the page that is stored in local storage
-        switch (localStorage.getItem("href")) {
+import $ from 'jquery';
+import "bootstrap/dist/js/bootstrap.min";
+const navc = () => {
+    // nav-bar a on click
+    $("nav-bar").on("click", "a", function() {
+        var href = $(this).attr("href");
+        // store href in local storage if it is not set
+        if (localStorage.getItem("href") === null) {
+            localStorage.setItem("href", href);
+        }
+        switch (href) {
             case "#summary":
                 $("article#summary").show();
                 $("article#countries").hide();
@@ -25,7 +27,6 @@ const main = () => {
             default:
                 break;
         }
-    }
-};
-
-export default main;
+    });
+}
+export default navc;
