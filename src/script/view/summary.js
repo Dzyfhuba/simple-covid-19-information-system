@@ -24,12 +24,30 @@ const summary = () => {
                         position: 'bottom'
                     }
                 }
-            }]
+            }],
+            // legend style
+            legend: {
+                show: true,
+                position: 'bottom',
+                horizontalAlign: 'center',
+                verticalAlign: 'middle',
+                floating: false,
+                fontSize: '14px',
+                offsetX: 0,
+                offsetY: 0,
+                labels: {
+                    useSeriesColors: true
+                }
+            },
         };
         var summaryChart = new ApexCharts(document.querySelector("#summaryChart"), options);
         summaryChart.render();
     }).catch(err => {
         console.log(err);
     });
+
+    // set "https://covid19.mathdro.id/api/og" to src of img tag
+    $("#summary img").attr("src", "https://covid19.mathdro.id/api/og");
+
 }
 export default summary;

@@ -44,11 +44,14 @@ const countries = () => {
                 chart: {
                     width: 200
                 },
-                legend: {
-                    position: 'bottom'
-                }
             }
-        }]
+        }],
+        legend: {
+            position: 'bottom',
+            labels: {
+                useSeriesColors: true
+            }
+        }
     }
     var countriesChart = new ApexCharts(document.querySelector("#countriesChart"), options);
     countriesChart.render();
@@ -76,5 +79,7 @@ function selectOption(countries) {
     }
 
     // select2 with bootstrap 5
-    $("#countries select").select2();
+    $("#countries select").select2({
+        placeholder: "Select a country",
+    });
 }

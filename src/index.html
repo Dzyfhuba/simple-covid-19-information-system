@@ -13,8 +13,15 @@
         </nav-bar>
     </header>
     <main api="https://covid19.mathdro.id/api">
+        <h1>
+            <span>COVID-19</span>
+            <span>Information and Statistics</span>
+            <span>Per Day</span>
+        </h1>
+
         <article id="summary" data-route="/">
             <div id="summaryChart"></div>
+            <img src="" alt="">
         </article>
         <article id="countries" data-route="/countries" style="display: none;">
             <select name="" id="" class="form-select">
@@ -22,8 +29,15 @@
             </select>
             <div id="countriesChart"></div>
         </article>
-        <article id="dailies" data-route="/daily" style="display: none;">
-            <div id="dailiesChart"></div>
+        <article id="dailies" data-route="/daily">
+            <select name="" id="" class="select-daily">
+                <option value="" selected disabled hidden>Choose an option</option>
+            </select>
+            <div class="filler">
+                <p>select a date then the information will appear</p>
+            </div>
+            <!-- <table>
+            </table> -->
         </article>
     </main>
     <footer>
