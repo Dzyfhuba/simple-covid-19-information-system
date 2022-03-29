@@ -6,20 +6,20 @@ import ApexCharts from 'apexcharts';
 
 const countries = () => {
 
-    var countries = $("article#countries");
-    var route = countries.data("route");
+    let countries = $("article#countries");
+    let route = countries.data("route");
     // get data from API
     const api = new API();
     api.getData(route).then(data => {
         // get name only of countries
-        var countries = data.countries.map(country => country.name);
+        let countries = data.countries.map(country => country.name);
         selectOption(countries);
 
     }).catch(err => {
         console.log(err);
     });
 
-    var options = {
+    let options = {
         title: {
             text: 'Covid-19 Cases',
             align: 'center',
@@ -53,15 +53,15 @@ const countries = () => {
             }
         }
     }
-    var countriesChart = new ApexCharts(document.querySelector("#countriesChart"), options);
+    let countriesChart = new ApexCharts(document.querySelector("#countriesChart"), options);
     countriesChart.render();
     $("#countries select").on("change", () => {
-        var selectedCountry = $("#countries select").val();
-        var route = countries.data("route") + "/" + selectedCountry;
+        let selectedCountry = $("#countries select").val();
+        let route = countries.data("route") + "/" + selectedCountry;
         // get data from API
         api.getData(route).then(data => {
             // update series
-            var series = [data.confirmed.value, data.recovered.value, data.deaths.value];
+            let series = [data.confirmed.value, data.recovered.value, data.deaths.value];
             countriesChart.updateSeries(series);
         }).catch(err => {
             console.log(err);
@@ -71,9 +71,9 @@ const countries = () => {
 export default countries;
 
 function selectOption(countries) {
-    var select = $("#countries select");
-    for (var i = 0; i < countries.length; i++) {
-        var option = document.createElement("option");
+    let select = $("#countries select");
+    for (let i = 0; i < countries.length; i++) {
+        let option = document.createElement("option");
         option.text = countries[i];
         select.append(option);
     }

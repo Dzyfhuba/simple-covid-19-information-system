@@ -1,6 +1,5 @@
 class API {
     getData(route = "") {
-        console.log(`https://covid19.mathdro.id/api${route}`);
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
             xhr.open('GET', `https://covid19.mathdro.id/api${route}`);

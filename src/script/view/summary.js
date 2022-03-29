@@ -2,12 +2,12 @@ import API from '../API';
 import ApexCharts from 'apexcharts';
 import $ from 'jquery';
 const summary = () => {
-    var api = new API();
-    var summary = $("article#summary");
-    var route = summary.data("route");
+    let api = new API();
+    let summary = $("article#summary");
+    let route = summary.data("route");
     // get data from API
     api.getData(route).then(data => {
-        var options = {
+        let options = {
             series: [data.confirmed.value, data.recovered.value, data.deaths.value],
             chart: {
                 width: 380,
@@ -40,7 +40,7 @@ const summary = () => {
                 }
             },
         };
-        var summaryChart = new ApexCharts(document.querySelector("#summaryChart"), options);
+        let summaryChart = new ApexCharts(document.querySelector("#summaryChart"), options);
         summaryChart.render();
     }).catch(err => {
         console.log(err);

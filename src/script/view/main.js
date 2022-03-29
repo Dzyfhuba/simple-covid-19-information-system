@@ -8,7 +8,6 @@ const main = () => {
 
     // get href from local storage if exists
     if (localStorage.getItem("href") !== null) {
-        console.log(localStorage.getItem("href"));
         // switch to the page that is stored in local storage
         switch (localStorage.getItem("href")) {
             case "#summary":
@@ -51,10 +50,8 @@ const main = () => {
     // show footer tag using scroll down key event
     window.onwheel = e => {
         if (e.deltaY >= 0) {
-            console.log('Scroll Down');
             $("footer").show();
         } else {
-            console.log('Scroll Up');
             $("footer").hide();
         }
     }
