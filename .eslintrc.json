@@ -1,24 +1,38 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true
     },
     "extends": [
-        "eslint:recommended"
+        "standard"
     ],
     "parserOptions": {
-        "ecmaVersion": "latest",
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
     "rules": {
-        "semi": [
+        "indent": [
             "error",
-            "warning"
+            4, 
+            { "SwitchCase": 1 }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
         ],
         "quotes": [
             "error",
             "double"
         ],
-        "no-mixed-spaces-and-tabs": "error"
+        "semi": [
+            "error",
+            "always"
+        ],
+        "eol-last": "off",
+        "func-call-spacing": "off",
+        "no-implicit-globals": "off",
+        "eqeqeq": "off",
+        "space-before-function-paren": "off"
     }
 }

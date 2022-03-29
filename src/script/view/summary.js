@@ -1,19 +1,19 @@
-import API from '../API';
-import ApexCharts from 'apexcharts';
-import $ from 'jquery';
+import API from "../API";
+import ApexCharts from "apexcharts";
+import $ from "jquery";
 const summary = () => {
-    let api = new API();
-    let summary = $("article#summary");
-    let route = summary.data("route");
+    const api = new API();
+    const summary = $("article#summary");
+    const route = summary.data("route");
     // get data from API
     api.getData(route).then(data => {
-        let options = {
+        const options = {
             series: [data.confirmed.value, data.recovered.value, data.deaths.value],
             chart: {
                 width: 380,
-                type: 'pie',
+                type: "pie"
             },
-            labels: ['Confirmed', 'Recovered', 'Deaths'],
+            labels: ["Confirmed", "Recovered", "Deaths"],
             responsive: [{
                 breakpoint: 480,
                 options: {
@@ -21,26 +21,26 @@ const summary = () => {
                         width: 200
                     },
                     legend: {
-                        position: 'bottom'
+                        position: "bottom"
                     }
                 }
             }],
             // legend style
             legend: {
                 show: true,
-                position: 'bottom',
-                horizontalAlign: 'center',
-                verticalAlign: 'middle',
+                position: "bottom",
+                horizontalAlign: "center",
+                verticalAlign: "middle",
                 floating: false,
-                fontSize: '14px',
+                fontSize: "14px",
                 offsetX: 0,
                 offsetY: 0,
                 labels: {
                     useSeriesColors: true
                 }
-            },
+            }
         };
-        let summaryChart = new ApexCharts(document.querySelector("#summaryChart"), options);
+        const summaryChart = new ApexCharts(document.querySelector("#summaryChart"), options);
         summaryChart.render();
     }).catch(err => {
         console.log(err);
@@ -48,6 +48,5 @@ const summary = () => {
 
     // set "https://covid19.mathdro.id/api/og" to src of img tag
     $("#summary img").attr("src", "https://covid19.mathdro.id/api/og");
-
-}
+};
 export default summary;

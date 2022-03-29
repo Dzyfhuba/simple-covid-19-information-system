@@ -1,26 +1,26 @@
-import $ from 'jquery';
-import API from '../API';
-import ApexCharts from 'apexcharts';
+import $ from "jquery";
+import API from "../API";
 import "bootstrap/dist/js/bootstrap.min";
-import _ from 'lodash';
-import 'datatables.net';
+import "datatables.net";
 import "datatables.net-dt";
 
 const dailies = () => {
-    let dailies = $("article#dailies");
-    let route = dailies.data("route");
+    const dailies = $("article#dailies");
+    const route = dailies.data("route");
 
     // get data from API
     const api = new API();
     api.getData(route).then(data => {
         // get name only of reportDate
-        let reportDate = data.map(daily => daily.reportDate);
+        const reportDate = data.map(daily => daily.reportDate);
         selectReportDate(reportDate);
-    }).catch(err => {});
+    }).catch(err => {
+        console.log(err);
+    });
 
     $("#dailies .select-daily").on("change select2:clear", () => {
-        let selectedDate = $("#dailies .select-daily").val();
-        let route = dailies.data("route") + "/" + selectedDate;
+        const selectedDate = $("#dailies .select-daily").val();
+        const route = dailies.data("route") + "/" + selectedDate;
 
         // get data from API
         api.getData(route).then(data => {
@@ -41,8 +41,8 @@ const dailies = () => {
                 $("#dailies").append(table);
 
                 // create table header
-                let thead = $("<thead>");
-                let tr = $("<tr>");
+                const thead = $("<thead>");
+                const tr = $("<tr>");
                 let th = $("<th>").text("Country Region");
                 tr.append(th);
                 th = $("<th>").text("Province State");
@@ -57,9 +57,9 @@ const dailies = () => {
                 table.append(thead);
 
                 // create table body
-                let tbody = $("<tbody>");
+                const tbody = $("<tbody>");
                 data.forEach(daily => {
-                    let tr = $("<tr>");
+                    const tr = $("<tr>");
                     let td = $("<td>").text(daily.countryRegion);
                     tr.append(td);
                     td = $("<td>").text(daily.provinceState);
@@ -76,10 +76,10 @@ const dailies = () => {
                 table.DataTable();
             } else {
                 // update table body
-                let tbody = $("#dailies table tbody");
+                const tbody = $("#dailies table tbody");
                 tbody.empty();
                 data.forEach(daily => {
-                    let tr = $("<tr>");
+                    const tr = $("<tr>");
                     let td = $("<td>").text(daily.countryRegion);
                     tr.append(td);
                     td = $("<td>").text(daily.provinceState);
@@ -95,31 +95,29 @@ const dailies = () => {
                 table.DataTable().destroy();
                 table.DataTable();
             }
-
         }).catch(err => {
             console.log(err);
             $(".filler").show();
             // remove table
-            let table = $("#dailies table");
+            const table = $("#dailies table");
             if (table.length > 0) {
                 table.DataTable().destroy();
                 table.remove();
             }
         });
-    })
+    });
+};
 
-}
-
-function selectReportDate(reportDate) {;
-    let select = $("#dailies .select-daily");
+const selectReportDate = reportDate => {
+    const select = $("#dailies .select-daily");
     for (let i = 0; i < reportDate.length; i++) {
-        let option = $("<option>").attr("value", reportDate[i]).text(reportDate[i]);
+        const option = $("<option>").attr("value", reportDate[i]).text(reportDate[i]);
         select.append(option);
     }
     $("#dailies .select-daily").select2({
         placeholder: "Select a date",
-        allowClear: true,
+        allowClear: true
     });
-}
+};
 
 export default dailies;

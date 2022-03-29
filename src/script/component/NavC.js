@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 import "bootstrap/dist/js/bootstrap.min";
 
 import summary from "../view/summary";
@@ -9,8 +9,8 @@ const navc = () => {
     // nav-bar a each on click
     $("nav-bar > nav > a").each((i, e) => {
         $(e).on("click", () => {
-            let href = e.getAttribute("href")
-                // store href in local storage if it is not set
+            const href = e.getAttribute("href");
+            // store href in local storage if it is not set
             localStorage.setItem("href", href);
             switch (href) {
                 case "#summary":
@@ -69,5 +69,5 @@ const navc = () => {
     //             break;
     //     }
     // });
-}
+};
 export default navc;

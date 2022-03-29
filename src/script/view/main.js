@@ -43,7 +43,7 @@ const main = () => {
     }
 
     // add '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">' to head tag
-    $("head").append('<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">');
+    $("head").append("<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css\">");
 
     // hide footer tag
     $("footer").hide();
@@ -54,7 +54,7 @@ const main = () => {
         } else {
             $("footer").hide();
         }
-    }
+    };
 };
 
 export default main;
